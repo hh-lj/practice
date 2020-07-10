@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>attr方法操作</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			1.attr(属性名，值)
+				可以传两个参数，也可以只传一个参数，传一个参数表示获取属性节点的值，传两个参数表示设置属性节点的值
+				注意：
+					获取：无论找到多少个元素，都只会返回第一个元素指定的属性节点的值  例如：$span.attr("name")
+					设置：找到多少个元素就会设计多少个元素的属性节点		例如：$span.attr("class","AA")
+						  如果设置的属性节点在元素中不存在，则会新增该属性节点到元素中		例如：$span.attr("value","AA")
+			2.removeAttr(属性名)
+				删除属性节点		
+					删除找到所有的属性节点	例如：$span.removeAttr("class")
+					如果要删除多个属性节点，则直接在要删除的属性节点名后面加空格再加另一个属性节点名		
+						例如:$span.removeAttr("class name");
+			*/
+		   $(function(){
+			   var $span=$("span");
+			   // console.log($span.attr("name"));
+			   // console.log($span.attr("class","AA"));
+			   //  console.log($span.attr("value","AA"))
+			   // $span.removeAttr("class");
+			   $span.removeAttr("class name");
+		   })
+		</script>
+	</head>
+	<body>
+		<span class="class1" name="哈哈"></span>
+		<span class="class2" name="hh"></span>
+	</body>
+</html>

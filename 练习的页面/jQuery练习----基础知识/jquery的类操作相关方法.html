@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>类的操作</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			.class1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 25px;
+			}
+			.class2{
+				border: #7FFFD4 1px solid;
+				margin: auto;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+			1.addClass()
+				作用：添加一个类，添加多个中间用空格隔开	例如：$("div").addClass(".class1 .class2")
+			2.removeClass()
+				作用：删除一个类，删除多个中间用空格隔开	例如：$("div").removeClass(".class1 .class2")
+			3.toggleClass()
+				作用：切换类，即有该类就删除，没有就添加	例如：$("div").toggleClass(".class1 .class2")
+			*/
+			$(function(){
+				//获取元素
+				var btn=document.getElementsByTagName("button");
+				//添加点击事件
+				btn[0].onclick=function(){
+					//点击后发生的事件
+					$("div").addClass(".class1 .class2")
+				}
+				btn[1].onclick=function(){
+					//点击后发生的事件
+					$("div").removeClass(".class1")
+				}
+				btn[2].onclick=function(){
+					//点击后发生的事件
+					$("div").toggleClass(".class1 .class2")
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<button>添加类</button>
+		<button>删除类</button>
+		<button>切换类</button>
+		<div></div>
+	</body>
+</html>

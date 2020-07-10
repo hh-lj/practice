@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		    <script>
+		       $(function(){
+				   /*
+				  1. html([val|fn])
+				  2.text([val|fn])
+				  3. val([val|fn|arr])
+
+				   */
+				  //获取button元素
+				  var btn=document.getElementsByTagName("button");
+				  //设置点击事件
+						btn[0].onclick=function(){
+							var $div=$("div");
+							$div.html("<p>嘿嘿嘿</p>");
+						}
+						btn[1].onclick=function(){
+							var $div=$("div");
+							console.log($div.html());
+						}
+						btn[2].onclick=function(){
+							var $div=$("div");
+							$div.text("<p>嘿嘿嘿</p>");
+						}
+						btn[3].onclick=function(){
+							var $div=$("div");
+							console.log($div.text());
+						}
+						btn[4].onclick=function(){
+							var $inp=$("input");
+							$inp.val("请输入值");
+						}
+						
+						btn[5].onclick=function(){
+							var $inp=$("input");
+							console.log($inp.val());
+						}
+		        });
+		    </script>
+	</head>
+	<body>
+		<button type="button">设置HTML</button>
+		<button type="button">获取HTML</button>
+		<button type="button">设置text</button>
+		<button type="button">获取text</button>
+		<button type="button">设置val</button>
+		<button type="button">获取val</button>
+		<div></div>
+		<input type="" name="" id="" value="" />
+	</body>
+</html>

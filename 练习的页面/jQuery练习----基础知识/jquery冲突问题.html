@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>冲突问题</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/hh.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.冲突
+			// $(function(){
+			// 	
+			// 	alert("hh")
+			// })
+			//2.解决方法一
+			//  jQuery.noConflict();
+			// jQuery(function(){
+			// 	
+			// 	alert("hh")
+			// })
+			//解决方法二
+			var ab=jQuery.noConflict();
+			ab(function(){
+				
+				alert("hh")
+			})
+			//1.若自己所写的代码有从外部引入script,并且所引入的外部script中含有$并且位于引入jquery的下面,则会覆盖上面的jquery,所以会产生冲突
+			// 2.解决:
+			// 	1.释放jquery中的$使用权:jQuery.noConflict();将后面jq中需要使用的$均用jQuery代替
+			// 		注意:释放需要在所有jq代码编写之前
+			// 	2.自定义一个访问符号:var ab=jQuery.noConflict();将后面jq中需要使用的$均用ab代替
+			// 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

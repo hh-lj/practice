@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>核心函数</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//$(); 		核心函数
+			//1.可以接受一个函数
+			// 	$(function(){
+			// 		alert("哈哈");
+			// 	})
+			// //2.可以接受一个字符串
+			  //2.1一个字符串选择器
+			    //返回一个jQuery对象,对象中保存了找到的DOM元素
+				  // var $div1=$(".div1");
+				 //  var $div2=$("#div1");
+				 //  console.log($div1);
+				 //  console.log($div2);
+			  //2.2一个代码片段
+				 //返回一个jQuery对象,对象中保存了创建的DOM元素
+					// $(function(){
+					//   var $div1=$(".div1");
+					//   var $p=$("<p>我是段落标签</p>");
+					//   console.log($p)
+					//   $div1.append($p)
+					//   })
+			//3可以接受一个DOM元素
+			//DOM元素会被包装成为一个jQuery对象返回给我们
+		// 		 $(function(){
+		// 		var span=document.getElementsByTagName("span")[0];
+		// 		var $span=$(span);
+		// 		console.log($span)
+		// 		});
+		// </script>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div id="div1"></div>
+		<span>我是span元素</span>
+	</body>
+</html>

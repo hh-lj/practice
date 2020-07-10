@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>静态方法和实例方法</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.定义一个类
+			function aClass(){
+
+			}
+			//2.直接给类添加方法的就是静态方法
+			aClass.staticMethod=function(){
+				alert("staticMethod");
+			}
+			aClass.staticMethod();
+			//3.给类添加一个实例方法
+			aClass.prototype.instanceMethod=function(){
+				alert("instanceMethod");
+			}
+			//4.实例的调用,实例方法通过类的实例调用
+				//创建一个实例(即创建一个对象)
+				var a=new aClass();
+				a.instanceMethod();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

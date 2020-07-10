@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>移入移出事件</title>
+		<style type="text/css">
+			.father{
+				width: 200px;
+				height: 200px;
+				background-color: #7FFFD4;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: #00FFFF;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				/*
+				使用mouseover/mouseout事件，子元素移入移出会执行父元素的事件
+				
+				*/
+					// $(".father").mouseover(function(){
+					// 	alert("移入事件");
+					// })
+					// $(".father").mouseout(function(){
+					// 	alert("我是移出事件");
+					// })
+					/*
+				使用mouseenter/mouseleave事件，子元素移入移出不会执行父元素的事件，企业开发中推荐使用
+					*/
+					// $(".father").mouseenter(function(){
+					// 	alert("移入事件");
+					// })
+					// $(".father").mouseleave(function(){
+					// 	alert("移出事件");
+					// })
+				/*使用hover事件,可以同时执行移入移出事件,可以传两个函数,也可以传一个函数,传一个函数表示即监听移入又监听移出*/
+					// $(".father").hover(function(){
+					// 	alert("移入事件");
+					// },function(){
+					// 	alert("移出事件");
+					// })
+					$(".father").hover(function(){
+						alert("移入事件");
+					})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

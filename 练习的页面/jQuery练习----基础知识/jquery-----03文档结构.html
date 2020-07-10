@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>03文档结构操作</title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			function testApprend(){
+				var div1=$("#div1");
+				div1.append("<b>我是div中后增的内容</b>")
+			}
+			function testAppendTo(){
+				var div1=$("#div1");
+				$("#sp1").appendTo(div1)
+			}
+			function testPrepend(){
+				var div1=$("#div1");
+				div1.prepend("<i>我是前加的内容</i>");
+			}
+			function testPrependto(){
+				var div1=$("#div1");
+				$("#sp1").prependTo(div1);
+			}
+			function testAfter(){
+				var div1=$("#div1");
+				div1.after("<i>我是后加的内容</i>");
+			}
+			function testBefore(){
+				var div1=$("#div1");
+				div1.before("<i>我是前加的内容</i>");
+			}
+			function testEmpty(){
+				var div1=$("#div1");
+				div1.empty();
+			}
+			function testClone(){
+				$("p").clone().prependTo("span")
+			}
+		</script>
+		<style type="text/css">
+			#div1{
+				width: 12.5rem;
+				height: 18.75rem;
+				border: #7FFFD4 1px solid;
+				border-radius: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>文档操作</h3><hr>
+		<input type="button" name="" id="" value="测试append" onclick="testApprend()"/>
+		<input type="button" name="" id="" value="测试appendto" onclick="testAppendTo()"/>
+		<input type="button" name="" id="" value="测试prepend" onclick="testPrepend()"/>
+		<input type="button" name="" id="" value="测试prependto" onclick="testPrependto()"/><hr>
+		<input type="button" name="" id="" value="测试after" onclick="testAfter()"/>
+		<input type="button" name="" id="" value="测试before" onclick="testBefore()"/>
+		<hr>
+		<input type="button" name="" id="" value="测试删除-----empty()" onclick="testEmpty()" />
+		<input type="button" name="" id="" value="测试克隆------clone" onclick="testClone()" />
+		<hr>
+		<p>哈哈哈哈</p>
+		<span id="sp1">
+			我是用来测试appendTo的
+		</span>
+		<hr>
+		<div id="div1">我是div1</div>
+	</body>
+</html>

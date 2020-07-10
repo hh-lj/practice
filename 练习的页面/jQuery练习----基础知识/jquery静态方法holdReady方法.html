@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>静态方法holdReady方法</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.使用原生JS注册点击事件
+			var btn=document.getElementsByTagName("button")[0];
+			// btn.onclick=function(){
+			// 	alert("哈哈")
+			// }
+			// $.holdReady(true) 作用:暂停ready的执行 传true为暂停,传false为恢复
+			$.holdReady(true)
+			$(document).ready(function(){
+				alert("hh");
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">按钮</button>
+	</body>
+</html>

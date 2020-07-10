@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jquery的prop方法</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			1.prop方法
+				获取：无论找到多少个元素，都只会返回第一个元素指定的属性节点的值  
+					  例如：$span.eq(0).prop("demo","aa");
+							$span.eq(1).prop("demo","bb");
+							console.log($span.prop("demo"));
+				设置：找到多少个元素就会设计多少个元素的属性节点		
+					  如果设置的属性节点在元素中不存在，则会新增该属性节点到元素中	
+					
+			2.removeProp方法
+				删除找到所有的属性		例如：$span.removeProp("demo");
+			*/
+		   /*
+		   prop不仅能操作属性，也能操作属性节点
+				   官方推荐：在具有true和false两个属性的属性节点，如checked、selected或者disabled使用prop()，其它使用attr();
+				例如：$span.prop("class","aa")
+		   */
+			$(function(){
+				// var $span=$("span");
+				// // $span.eq(0).prop("demo","aa");
+				// // $span.eq(1).prop("demo","bb");
+				// // console.log($span.prop("demo"));
+				// // $span.removeProp("demo");
+				// $span.prop("class","aa")
+				var $btn=$("input");
+				console.log($btn.prop("checked"))
+				console.log($btn.attr("checked"))
+			})
+		</script>
+	</head>
+	<body>
+		<span class="hh1" name="it"></span>
+		<span class="hh2" name="666"></span>
+		<input type="checkbox" name="" id="" value="" checked="checked"/>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>1、jquery的学习</title>
+		<script type="text/javascript" src="js/jquery.js">
+		</script>
+		<script type="text/javascript">
+			function file1(){
+				var uname=$("#uname");
+				alert(uname.attr("type")+":"+uname.attr("value"));
+			}
+			function file2(){
+				var uname=$("#uname");
+				uname.attr("type","button");
+			}
+		</script>
+	</head>
+	<body>
+		<h3>jquery的元素操作</h3>
+		<input type="button" name="" id="" value="测试获取元素操作" onclick="file1()"/>
+		<input type="button" name="" id="" value="测试修改元素操作" onclick="file2()"/>
+		<br>
+		用户名：<input type="text" name="uname" id="uname" value=""  />
+		
+	</body>
+</html>

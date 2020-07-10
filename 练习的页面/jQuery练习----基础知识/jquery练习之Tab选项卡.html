@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tab选项卡</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 500px;
+				height: 440px;
+				margin: 50px auto;
+				border: 1px solid ;
+			}
+			.nav>li{
+				list-style: none;
+				background: orange;
+				width: 125px;
+				height: 40px;
+				text-align: center;
+				line-height: 25px;
+				float: left;
+			}
+			.nav>.current{
+				background: #ccc;
+			}
+			.content>li{
+				list-style: none;
+				display: none;
+			}
+			.content>.show{
+				display: block;
+			}
+			.content>li>img{
+				width: 500px;
+				height: 400px;
+			}
+			
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				// //1.监听事件
+				// $(".nav>li").hover(function(){
+				// 	$(this).addClass("current");
+				// 	//获取鼠标移入事件的索引
+				// 	var $index=$(this).index();
+				// 	//获取对应索引的对应图片
+				// 	var $li=$(".content>li").eq($index);
+				// 	//使获取的图片显示出来
+				// 	$li.addClass("show");
+				// },function(){
+				// 	$(this).removeClass("current");
+				// 	//获取鼠标移出事件的索引
+				// 	var $index=$(this).index();
+				// 	//获取对应索引的对应图片
+				// 	var $li=$(".content>li").eq($index);
+				// 	//使获取的图片隐藏起来
+				// 	$li.removeClass("show");
+				// })
+			//1.监听事件
+			$(".nav>li").mouseenter(function(){
+				//为移入的元素添加类
+				$(this).addClass("current");
+				//使用siblings()事件选出未移入的其他元素,为其去掉添加的类
+				$(this).siblings().removeClass("current");
+				var $index=$(this).index();
+				var $li=$(".content>li").eq($index);
+				 $li.addClass("show");
+				 $li.siblings().removeClass("show")
+			})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="nav">
+				<li class="current">HTML5</li>
+				<li>jQuery</li>
+				<li>C语言</li>
+				<li>JS</li>
+			</ul>
+			<ul class="content">
+				<li class="show"><img src="img/html.jpg" alt=""></li>
+				<li><img src="img/jq.jpg" alt=""></li>
+				<li><img src="img/C语言.jpg" alt=""></li>
+				<li><img src="img/js.jpg" alt=""></li>
+			</ul>
+		</div>
+	</body>
+</html>

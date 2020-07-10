@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义动画</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: #7FFFD4;
+				margin-bottom: 20px;
+			}
+			.two{
+				background-color: #00FFFF;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+						// $(".one").animate({
+						// 	width:500
+						// },5000,function(){
+						// 	alert("自定义动画加载完毕")
+						// })
+						/*先传入一个对象,然后传入速度(可以是数字，也可以是fast、slow等),再传入运动的规律(swing表示先慢后快、linear表示匀速),
+						再传入一个回调函数，使用自定义事件可以传两个参数、三个参数或四个参数*/
+						$(".one").animate({
+							marginLeft:500
+						},5000);
+						// $(".one").animate({
+						// 	marginLeft:500
+						// },5000,"swing",function(){
+						// 	alert("自定义动画加载完毕")
+						 // })
+						$(".two").animate({
+							marginLeft:500
+						},5000,"linear",function(){
+							alert("自定义动画加载完毕")
+						})
+				});
+				$("button").eq(1).click(function(){
+					$(".two").animate({
+						width:"+=100"//在原有的基础上加一百
+					},5000,function(){
+						alert("自定义动画加载完毕")
+					})
+				});
+				$("button").eq(2).click(function(){
+					$(".two").animate({
+						// width:"hide"
+						width:"toggle"
+					},5000,function(){
+						alert("自定义动画加载完毕")
+					})
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">操作属性</button>
+		<button type="button">累加属性</button>
+		<button type="button">关键字</button><hr>
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

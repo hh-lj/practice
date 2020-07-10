@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>代码片段的优化</title>
+		<!-- <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/njQuery-1.0.0.js" type="text/javascript" charset="utf-8"></script> -->
+		<script type="text/javascript">
+			/*
+			apply和call的作用：专门用来修改方法内部的this
+			*/
+			 // function test(){
+				//  console.log(this);
+			 // }
+			 // // window.test()
+			 // var ab={"name":"hhh"};
+			 // //通过window.test找到test方法			通过apply(a)将找到test方法内部的this修改为自定义的对象
+			 // // window.test.apply(ab);
+			 // function sum(a,b){
+				//  console.log(this);
+				//  console.log(a+b);
+			 // }
+			 // // window.sum.call(ab,1,2);
+			 // window.sum.apply(ab,[3,5]);
+			 window.onload=function(ev){
+				 var div=document.querySelectorAll("div");
+				 var wsz={"name":"zs","age":15,length:2};
+				 // var arr=[];
+				 // [].push.apply(arr,wsz);
+				 var arr=[].slice.call(wsz);
+					console.log(arr);
+				 // console.log(arr);
+				 var arr2=[1,2,3,4,5];
+				 //1.若slice()方法中未传任何参数,将会把原数组中的元素放到一个新数组原样返回中
+				 //2.若slice(n),则会从原数组中的角标n开始截取,将截取的元素放到一个新数组原样返回中
+				 //3.slice(n,m)则会从原数组中的角标n开始截取,角标m停止
+				 var res=arr2.slice();
+				 console.log(res);
+			 }
+		</script>
+	</head>
+	<body>
+		<div>我是div</div>
+		<div>我是div</div>
+		<div>我是div</div>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件的自动触发</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: #7FFFD4;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				/*
+				trigger()和triggerHandler()的区别
+					1.trigger()触发子元素事件，会触发冒泡事件		例如：$(".son").trigger("click");
+					  triggerHandler()触发子元素事件，不会触发冒泡事件		例如：$(".son").triggerHandler("click");
+					2.trigger()触发有默认行为元素的事件，会触发元素的默认行为		例如：$("input[type=submit]").trigger("click")
+					  triggerHandler()触发有默认行为元素的事件，会触发元素的默认行为		例如：$("input[type=submit]").triggerHandler("click")
+				注意：
+					当用trigger()触发<a></a>标签时，不会触发默认行为，若要用trigger()触发其默认行为时，需要为其添加子元素标签，触发其子元素标签
+						例如：$("p").click(function(){
+								alert("a")
+								})
+							$("p").trigger("click");
+				*/
+				$(".son").click(function(e){
+								   alert("son")
+								   // // return false;
+								   // e.stopPropagation()
+				})
+				$(".father").click(function(){
+								   alert("father")
+				})
+				// $(".father").trigger("click");
+				// $(".father").triggerHandler("click");
+				// $(".son").trigger("click");
+				// $(".son").triggerHandler("click");
+				// $("input[type=submit]").click(function(){
+				// 	alert("submit")
+				// })
+				// $("input[type=submit]").trigger("click")
+				// $("input[type=submit]").triggerHandler("click")
+				$("a").click(function(){
+					alert("a")
+				})
+				 $("a").trigger("click");
+			})
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com" target="_blank" ><p>我是百度</p></a>
+		<form action="http://www.taobao.com" method="post" target="_blank">
+			<input type="text" name="" id="" value="" />
+			<input type="submit" value="提交按钮"/>
+		</form>
+	</body>
+</html>

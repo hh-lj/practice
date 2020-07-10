@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹窗广告</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 210px;
+				height: 160px;
+				position: fixed;
+				bottom: 0px;
+				right: 5px;
+				display: none;
+			}
+			img{
+				width: 200px;
+				height: 150px;
+			}
+			.box>span{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 0px;
+				right: 10px;
+				/* background-color: red; */
+				text-align: center;
+				color: gray;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("span").click(function(){
+					$(".box").remove();//监听span点击事件,点击span则移出广告
+				});
+				//将广告从下面展开,然后淡出,再淡入
+				//法一:
+					// $(".box").slideDown(1000,function(){
+					// 	$(".box").fadeOut(1000,function(){
+					// 		$(".box").fadeIn(1000);
+					// 	});
+					// });
+				//法二:,进行队列函数之前,先调用stop()函数,可以解决一些隐藏的bug
+				$(".box").stop().slideDown(1000).fadeOut(1000).fadeIn(1000);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<img src="img/战狼图片.jpg" alt="">
+			<span>x</span>
+			</div>
+	</body>
+</html>

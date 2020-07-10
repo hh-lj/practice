@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>attr方法和prop方法练习</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//给元素添加点击事件
+				var btn=document.getElementsByTagName("button")[0];
+				btn.onclick=function(){
+					//获取输入框输入的内容
+					var inp=document.getElementsByTagName("input")[0];
+					var text=inp.value;
+					var $img=$("img");
+					$img.prop("src","text");
+					$img.attr("src","text");
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" /><button type="button" >切换图片</button><br>
+		<img src="img/图片1.jpg" >
+	</body>
+</html>

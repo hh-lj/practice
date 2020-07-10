@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>样式操作的方法</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1.逐个设置
+				var $div=$("div");
+					// $div.css("width","100px");
+					// $div.css("height","100px");
+					// $div.css("background-color","red");
+				//2.链式操作
+				  //注意:链式操作如果大于3步,建议分开
+					// $div.css("width","100px").css("height","100px").css("background-color","blue");
+				//3.批量操作		推荐使用
+				$div.css({
+					width:"100px",
+					height:"100px",
+					background:"hotpink"
+				})
+				//4.获取css样式值
+				console.log($div.css("width"))
+				console.log($div.css("height"))
+				console.log($div.css("background"))
+				})
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

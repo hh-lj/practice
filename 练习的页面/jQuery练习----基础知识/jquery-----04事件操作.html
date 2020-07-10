@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>操作事件</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function testthing(){
+				btn.onclick=function(){
+					alert("我是js事件操作方式哦")
+				}
+			}
+			function testbind(){
+				$("#btn2").bind("click",function(){alert("我是jquery事件操作方式哦")})
+				$("#btn2").bind("click",function(){alert("我是jquery事件操作方式哦，哈哈哈哈")})
+			}
+			function testunbind(){
+				$("#btn2").unbind("click");
+			}
+			function testone(){
+				$("#btn3").one("click",function(){alert("我是jquery事件操作方式哦")})
+			}
+			function testsite(){
+				$(document).ready(function () {
+					alert("我是jq页面导入");
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="事件操作---js方式" onclick="testthing()"/>
+		<input type="button" name="" id="" value="事件操作---bind方式" onclick="testbind()"/>
+		<input type="button" name="" id="" value="事件操作---unbind方式" onclick="testunbind()"/>
+		<input type="button" name="" id="" value="事件操作---one方式" onclick="testone()"/>
+		<hr>
+		<input type="button" name="" id="" value="页面导入" onclick="testsite()" />
+		<hr>
+		<input type="button" name="" id="btn" value="js事件操作" />
+		<inp
+		ut type="button" name="" id="btn2" value="jq事件操作----bind" />
+		<input type="button" name="" id="btn3" value="jq事件操作----one" />
+	</body>
+</html>

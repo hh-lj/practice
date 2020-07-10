@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无限滚动动画</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding:0;
+			}
+			.box{
+				width: 600px;
+				height: 161px;
+				margin: 100px auto;
+				overflow: hidden;
+				border: 1px solid;
+			}
+			ul{
+				list-style: none;
+				width: 1800px;
+				height: 161px;
+				background-color: black;
+			}
+			ul>li{
+				float: left;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//设置最初的偏移量为0
+			 var offset=0;
+			var time;
+			//设置一个定时器
+			function Play(){
+				time=setInterval(function(){
+					//每次向左偏移10px;
+					offset+=-10;
+					//当四张图片均被移出后,偏移量又回归为0,为了不产生闪现行为,所以在四张图片之后添加两张与原图片开始的那两张图片一样
+					if(offset<=-1200){
+						offset=0;
+					}else{
+						//因为ul是li的父元素,所以移动父元素,子元素也会跟着动,为ul添加向左移动的样式
+						$("ul").css("marginLeft",offset);
+					}
+				},100)
+			}
+			Play();
+			$("li").hover(function(){
+				//当鼠标移入,关闭定时器
+				clearInterval(time);
+				//鼠标移入时候,为其他图片添加一个蒙版
+				$(this).siblings().fadeTo(100,0.5)
+				//当选定另一张图片时候,去除当前图片的蒙版
+				$(this).fadeTo(100,1)
+			},function(){
+				//鼠标移出时候,定时器继续开启
+				Play();
+				//当鼠标移出时候,去除所有图片蒙版
+				$("li").fadeTo(100,1)
+			})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><img src="img/a.jpg" alt=""></li>
+				<li><img src="img/b.jpg" alt=""></li>
+				<li><img src="img/c.jpg" alt=""></li>
+				<li><img src="img/d.jpg" alt=""></li>
+				<li><img src="img/a.jpg" alt=""></li>
+				<li><img src="img/b.jpg" alt=""></li>
+			</ul>
+		</div>
+	</body>
+</html>

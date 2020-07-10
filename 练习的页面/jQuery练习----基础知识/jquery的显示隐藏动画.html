@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>显示隐藏动画</title>
+		<style type="text/css">
+			button{
+				/* border: solid 1px; */
+				border-radius: 25%;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background-color: #00FFFF;
+				display: none;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+					//1.法一:显示比较丑,没有任何动画效果
+						//$(".box").css("display","block")
+					//2.法二:显示较美观,有自带的动画效果
+					 $(".box").show(1000,function(){
+						 //在show()执行之后执行函数
+						 alert("我是函数")
+					 })
+				})
+				$("button").eq(1).click(function(){
+					//1.法一:隐藏比较丑,没有任何动画效果
+						//$(".box").css("display","none")
+					//2.法二:隐藏较美观,有自带的动画效果
+					 $(".box").hide(1000)
+				})
+				$("button").eq(2).click(function(){
+					 $(".box").toggle(1000)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">显示</button>
+		<button type="button">隐藏</button>
+		<button type="button">切换</button>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

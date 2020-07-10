@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery的基本原理</title>
+		<script type="text/javascript">
+			/*
+			1、jQuery的本质就是一个闭包
+			2、jQuery为什么要使用闭包来实现
+					为了避免框架冲突
+			3、如何让jQuery外部来访问内部定义的变量？
+					使用window.xxx=xxx来实现
+			4、为什么jQuery要给自己传递window这个参数
+					1.为了方便后期压缩代码
+					2.为了提升查找效率
+			5、为什么jQuery要给自己接收undifined这个参数
+					1.为了方便后期压缩代码
+					2.IE9以下的浏览器undifined可以被修改，为了保证内部使用的undifined不被修改，所以需要接收一个正确的undifined
+			*/
+		 (function(window,undefined){
+			 var jQuery=function(){
+				 return new jQuery.prototype.init();
+			 }
+			 jQuery.prototype={
+				 constructor:jQuery
+			 }
+			 jQuery.prototype.init.prototype=jQuery.prototype
+			 window.jQuery=window.$=jQuery;
+		 })(window);
+		
+		
+		(function f1(){
+					 var num=10;
+					 console.log(num)
+		})();
+		(function f2(){
+					 var num=20;
+					 console.log(num)
+		})();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

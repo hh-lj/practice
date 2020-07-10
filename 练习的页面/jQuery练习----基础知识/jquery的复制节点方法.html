@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复制节点</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+					/*浅复制是指只能复制内容，不能复制方法*/
+					var $li=$("li:first").clone(false);
+					$("ul").append($li);
+				});
+				$("button").eq(1).click(function(){
+					/*深复制是指不仅能复制内容，又能复制方法*/
+					var $li=$("li:first").clone(true);
+					$("ul").append($li);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">浅复制</button>
+		<button type="button">深复制</button>
+		<hr>
+		<ul>
+			<li>我是第1个li</li>
+			<li>我是第2个li</li>
+			<li>我是第3个li</li>
+			<li>我是第4个li</li>
+		</ul>
+	</body>
+</html>

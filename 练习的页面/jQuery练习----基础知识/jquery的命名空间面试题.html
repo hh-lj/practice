@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>命名空间面试题</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: #7FFFD4;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				/*
+				1.当子元素有带命名空间的事件，利用trigger触发该事件时，父元素中含有该命名空间的事件也会被触发，没有该命名空间的就不会
+				 被触发
+				2.利用trigger触发子元素不带命名空间的事件时，子元素、父元素种所有的相同事件都会会触发，即使相同事件中有带命名空间的
+				
+				*/
+				$(".father").on("click.zs",function(){
+					alert("我是点击事件一");
+				})
+				$(".father").on("click",function(){
+					alert("我是点击事件二");
+				})
+				$(".son").on("click.zs",function(){
+					alert("我是点击事件一");
+				})
+				$(".son").trigger("click.zs");
+			})
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com" target="_blank" ><p>我是百度</p></a>
+		<form action="http://www.taobao.com" method="post" target="_blank">
+			<input type="text" name="" id="" value="" />
+			<input type="submit" value="提交按钮"/>
+		</form>
+	</body>
+</html>

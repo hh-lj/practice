@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>淘宝案例</title>
+		<script type="text/javascript">
+			function inMouse(img,src){
+				img.style.border="1px solid";
+				var big=document.getElementById("img")
+				big.src="img/"+src;
+			}
+			function outMouse(img){
+				img.style.border="";
+			}
+		</script>
+		<style type="text/css">
+			#showdiv{
+				width: 500px;
+				height: 800px;
+				border: 1px solid #7FFFD4;
+				border-radius: 25px;
+				margin-left: 250px;
+				margin-top: 150px;
+				background-color: #FAEBD7;
+			}
+			#div1{
+				width: 450px;
+				height: 550px;
+				margin-top: 20px;
+				margin-left: 15px;
+				
+			}
+			.div{
+				width: 70px;
+				height: 100px;
+				margin-top: 20px;
+				margin-left: 23px;
+				display: inline-block;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="showdiv">
+			<div id="div1"><img src="img/photo.jpg" id="img" width="450px" height="550px"></div>
+			<div id="div2" class="div"><img src="img/photo1.jpg" width="70px" height="100px" onmousemove="inMouse(this,'photo1.jpg')" onmouseout="outMouse(this)"></div>
+			<div id="div3" class="div"><img src="img/photo2.jpg" width="70px" height="100px" onmousemove="inMouse(this,'photo2.jpg')" onmouseout="outMouse(this)"></div>
+			<div id="div4" class="div"><img src="img/photo3.jpg" width="70px" height="100px" onmousemove="inMouse(this,'photo3.jpg')" onmouseout="outMouse(this)"></div>
+			<div id="div5" class="div"><img src="img/photo4.jpg" width="70px" height="100px" onmousemove="inMouse(this,'photo4.jpg')" onmouseout="outMouse(this)"></div>
+			<div id="div6" class="div"><img src="img/photo5.jpg" width="70px" height="100px" onmousemove="inMouse(this,'photo5.jpg')" onmouseout="outMouse(this)"></div>
+		</div>
+	</body>
+</html>

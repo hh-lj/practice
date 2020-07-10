@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>淡入淡出</title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 200px;
+				background-color:#00FFFF;
+				display: none;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+					$(".box").fadeIn(1000)
+				});
+				$("button").eq(1).click(function(){
+					$(".box").fadeOut(1000)
+				});
+				$("button").eq(2).click(function(){
+					$(".box").fadeToggle(1000)
+				});
+				$("button").eq(3).click(function(){
+					$(".box").fadeTo(1000,0.5)//第一个值为完成时间,第二个值表示透明程度
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">淡入</button>
+		<button type="button">淡出</button>
+		<button type="button">切换</button>
+		<button type="button">淡入到</button><hr>
+		<div class="box"></div>
+	</body>
+</html>

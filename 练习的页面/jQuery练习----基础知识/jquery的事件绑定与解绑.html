@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件绑定与解绑</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				/*
+				jquery的两种绑定方式
+					1.eventName(fn)
+						编码效率高
+						可以添加多个不同事件，不会被覆盖
+						部分事件jQuery没有实现，所以不能添加
+						
+				*/
+			   /*
+			   					2.on(eventName,fn)
+			   						编码效率低
+			   						可以添加多个不同事件，不会被覆盖
+			   						所有js事件均可添加
+			   */
+	//-----------------------------------------------------------------------------------------------------------------------
+			  //第一种
+						function test1(){
+								alert("我是点击方式")
+						   }
+						function test2(){
+						   		alert("我是鼠标移出方式")
+						   }
+							$("button").click(test1);
+						   $("button").click(function(){
+							   alert("我是点击方式")
+						   })
+						   $("button").mouseenter(function(){
+						   		alert("我是鼠标移入方式")
+						   })
+						   $("button").mouseleave(test2)
+						   $("button").mouseleave(function(){
+						   		alert("ggg")
+						   })
+//----------------------------------------------------------------------------------------------------------------------
+				//第二种
+					   // $("button").on("click",(function(){
+					   // 	   alert("我是第二种绑定方式")
+					   // 	 }))
+					   // $("button").on("mouseenter",(function(){
+					   // 	   alert("我是鼠标移入方式")
+					   // 	 }))
+					   // $("button").on("mouseleave",(function(){
+					   // 	   alert("我是鼠标移出方式")
+					   // 	 }))
+//---------------------------------------------------------------------------------------------------------------------
+			/*
+			Query的解绑方式
+				off()	可以传值或者不传参，如果不传参则表示将该元素上绑定的所有事件解绑	例如：$("button").off()
+						传一个参数则表示将绑定的指定类型的所有事件解绑		例如：$("button").off("mouseleave")
+						传两个参数表示解绑指定的类型的指定的事件		例如：$("button").off("mouseleave",test2)
+			
+			*/
+				$("button").off("mouseleave",test2)
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">绑定</button>
+		<!-- <button type="button"></button> -->
+		
+	</body>
+</html>

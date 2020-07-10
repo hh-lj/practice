@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>添加节点和删除节点的相关方法</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+					//内部插入
+					/*
+					append、appendTo、prepend、prependTo
+					*/
+					// $("ul").append("<li>我是新增的li</li>");//
+					// $("ul").prepend("<li>我是新增的li</li>");
+					$("<li>我是新增的li</li>").appendTo("ul")
+					//外部插入
+					/*
+					after、before、insertAfter、insertBerfore
+					*/
+				});
+				$("button").eq(1).click(function(){
+					// $("div").remove()//删除指定元素
+					// $("div").empty();//删除指定元素中的内容和子元素
+					$("div").detach//作用与remove一样
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">添加节点</button>
+		<button type="button">删除节点</button>
+		<ul>
+			<li>我是第1个li</li>
+			<li>我是第2个li</li>
+			<li>我是第3个li</li>
+		</ul>
+		<div>哈哈哈哈哈，我是div
+			<p>我是段落标签</p>
+		</div>
+	</body>
+</html>
